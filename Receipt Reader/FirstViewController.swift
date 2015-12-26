@@ -13,6 +13,12 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var tesseract:G8Tesseract = G8Tesseract(language:"eng");
+        tesseract.image = UIImage(named: "example.png");
+        tesseract.recognize();
+        
+        NSLog("%@", tesseract.recognizedText);
     }
 
     override func didReceiveMemoryWarning() {

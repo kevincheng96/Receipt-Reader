@@ -14,6 +14,11 @@
 		D74F95BA1C2BADA300C852C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74F95B91C2BADA300C852C7 /* Images.xcassets */; };
 		D74F95BD1C2BADA300C852C7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D74F95BB1C2BADA300C852C7 /* LaunchScreen.xib */; };
 		D74F95C91C2BADA300C852C7 /* Receipt_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F95C81C2BADA300C852C7 /* Receipt_ReaderTests.swift */; };
+		D74F95D31C2BADD600C852C7 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = D74F95D21C2BADD600C852C7 /* tessdata */; };
+		D74F95D51C2BADF400C852C7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D74F95D41C2BADF400C852C7 /* libstdc++.dylib */; };
+		D74F95D71C2BADFC00C852C7 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74F95D61C2BADFC00C852C7 /* CoreImage.framework */; };
+		D74F95D91C2BAE2C00C852C7 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74F95D81C2BAE2B00C852C7 /* TesseractOCR.framework */; };
+		D74F95DF1C2BAE7000C852C7 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = D74F95DE1C2BAE7000C852C7 /* example.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,12 @@
 		D74F95C21C2BADA300C852C7 /* Receipt ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Receipt ReaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74F95C71C2BADA300C852C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74F95C81C2BADA300C852C7 /* Receipt_ReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt_ReaderTests.swift; sourceTree = "<group>"; };
+		D74F95D21C2BADD600C852C7 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		D74F95D41C2BADF400C852C7 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		D74F95D61C2BADFC00C852C7 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D74F95D81C2BAE2B00C852C7 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		D74F95DA1C2BAE4000C852C7 /* Receipt Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Receipt Reader-Bridging-Header.h"; sourceTree = "<group>"; };
+		D74F95DE1C2BAE7000C852C7 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74F95D71C2BADFC00C852C7 /* CoreImage.framework in Frameworks */,
+				D74F95D91C2BAE2C00C852C7 /* TesseractOCR.framework in Frameworks */,
+				D74F95D51C2BADF400C852C7 /* libstdc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +77,9 @@
 			children = (
 				D74F95AD1C2BADA200C852C7 /* Receipt Reader */,
 				D74F95C51C2BADA300C852C7 /* Receipt ReaderTests */,
+				D7ADF2DE1C2BAEA0001B90CA /* Frameworks */,
 				D74F95AC1C2BADA200C852C7 /* Products */,
+				D74F95DA1C2BAE4000C852C7 /* Receipt Reader-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +95,7 @@
 		D74F95AD1C2BADA200C852C7 /* Receipt Reader */ = {
 			isa = PBXGroup;
 			children = (
+				D74F95DE1C2BAE7000C852C7 /* example.png */,
 				D74F95B01C2BADA200C852C7 /* AppDelegate.swift */,
 				D74F95B21C2BADA200C852C7 /* FirstViewController.swift */,
 				D74F95B41C2BADA200C852C7 /* SecondViewController.swift */,
@@ -93,6 +110,7 @@
 		D74F95AE1C2BADA200C852C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D74F95D21C2BADD600C852C7 /* tessdata */,
 				D74F95AF1C2BADA200C852C7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +131,16 @@
 				D74F95C71C2BADA300C852C7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7ADF2DE1C2BAEA0001B90CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D74F95D61C2BADFC00C852C7 /* CoreImage.framework */,
+				D74F95D41C2BADF400C852C7 /* libstdc++.dylib */,
+				D74F95D81C2BAE2B00C852C7 /* TesseractOCR.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +224,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D74F95B81C2BADA200C852C7 /* Main.storyboard in Resources */,
+				D74F95DF1C2BAE7000C852C7 /* example.png in Resources */,
+				D74F95D31C2BADD600C852C7 /* tessdata in Resources */,
 				D74F95BD1C2BADA300C852C7 /* LaunchScreen.xib in Resources */,
 				D74F95BA1C2BADA300C852C7 /* Images.xcassets in Resources */,
 			);
@@ -340,9 +370,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Receipt Reader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Receipt Reader-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,9 +387,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Receipt Reader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Receipt Reader-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +452,7 @@
 				D74F95CE1C2BADA300C852C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D74F95CF1C2BADA300C852C7 /* Build configuration list for PBXNativeTarget "Receipt ReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +461,7 @@
 				D74F95D11C2BADA300C852C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
