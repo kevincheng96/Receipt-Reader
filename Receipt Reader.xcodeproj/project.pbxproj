@@ -19,6 +19,7 @@
 		D74F95D71C2BADFC00C852C7 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74F95D61C2BADFC00C852C7 /* CoreImage.framework */; };
 		D74F95D91C2BAE2C00C852C7 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74F95D81C2BAE2B00C852C7 /* TesseractOCR.framework */; };
 		D74F95DF1C2BAE7000C852C7 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = D74F95DE1C2BAE7000C852C7 /* example.png */; };
+		D7FDFDF01C338FE700FE30D8 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7FDFDEF1C338FE700FE30D8 /* example.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D74F95D81C2BAE2B00C852C7 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		D74F95DA1C2BAE4000C852C7 /* Receipt Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Receipt Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D74F95DE1C2BAE7000C852C7 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
+		D7FDFDEF1C338FE700FE30D8 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				D74F95DE1C2BAE7000C852C7 /* example.png */,
+				D7FDFDEF1C338FE700FE30D8 /* example.jpg */,
 				D74F95B01C2BADA200C852C7 /* AppDelegate.swift */,
 				D74F95B21C2BADA200C852C7 /* FirstViewController.swift */,
 				D74F95B41C2BADA200C852C7 /* SecondViewController.swift */,
@@ -223,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FDFDF01C338FE700FE30D8 /* example.jpg in Resources */,
 				D74F95B81C2BADA200C852C7 /* Main.storyboard in Resources */,
 				D74F95DF1C2BAE7000C852C7 /* example.png in Resources */,
 				D74F95D31C2BADD600C852C7 /* tessdata in Resources */,
