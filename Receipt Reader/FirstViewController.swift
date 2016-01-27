@@ -7,25 +7,28 @@
 //
 
 // THINGS TO DO:
-// Implement Core Data to save user receipts (do later)
-// Make sure photo cropping works
-// Be able to parse receipts for numbers in order to correctly save entries (WORK ON THIS NOW)
+// Implement Core Data to save user receipts (do later) OR use Parse.io
+// Have custom photo cropping (maybe using an open source library)
 // Work on improving tesseract OCR readings (black and white, size, filtering, etc.)
-// Also allow users to self-input purhcases
+// Also allow users to self-input purchases
 // Design a "How to use" tab
+// Find a way to track the number of the same items bought (if item exists in dictionary, increment count by 1?)
+// Still need to filter out $ sign from prices
+// Low priority: implement a smart system that edits similar text to match items already in dictionary
+// Need to work on UI/UX (Need clear instructions at the top to explain the user has to seperate lines)
+// Store Receipt button must be hidden and then show after taking a picture
 // Have a rescan button
 
 import UIKit
 
 class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var receiptTextView: UITextView!
     
     var activityIndicator:UIActivityIndicatorView!
     var recognizedText:String!
     var arrayOfItems:[String]?
-    var itemPriceDict:[String:Double]?
+    var itemPriceDict:[String:Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,14 +131,47 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func parseText(text: String) {
         // Everytime there is a number followed by a line break, seperate it and store it into the array
         // So each element in array has a string followed by a price number
-        var arr = text.componentsSeparatedByCharactersInSet(.newlineCharacterSet())
+        
+        /* var arr = text.componentsSeparatedByCharactersInSet(.newlineCharacterSet()) */
+        var arr:[String] = []
+        text.enumerateLines { (line, stop) -> () in
+            arr.append(line)
+        }
         arrayOfItems = arr.filter({$0 != "" && $0 != " "})
         var receiptText = join("\n", arrayOfItems!)
-        receiptTextView.text = receiptText
-        NSLog("%@", arr)
+        receiptTextView.text = receiptText // UPDATING VIEW SHOULD BE OUTSIDE OF THIS FUNCTION
         
         // Then seperate the string and price and store them into a dictionary of item:prices
         // itemPriceDict
+        
+    }
+    
+    // Ask user to enter a line break after each price
+    // After user seperates each line of receipt with a line break, stores the data into the database
+    @IBAction func storeReceipt(sender: AnyObject) {
+        var receiptText = receiptTextView.text
+        var arr:[String] = []
+        receiptText.enumerateLines { (line, stop) -> () in //seperate the user editted text into lines again
+            arr.append(line)
+        }
+        arrayOfItems = arr.filter({$0 != "" && $0 != " "})
+        
+        for line in arrayOfItems! { //read each line to extract the item and price
+            var lineArr = split(line) {$0 == " "} //split the line into an array of words
+            if !lineArr.isEmpty {
+                let price = lineArr.last //price should be the last word in the array
+                // still need to filter out the dollar signs if there are in price
+                let pricedouble = (price! as NSString).doubleValue
+                let lastindex = countElements(lineArr) - 1
+                lineArr.removeAtIndex(lastindex)
+                let item = join(" ", lineArr)
+                
+                itemPriceDict[item] = pricedouble //add item and price to dictionary!
+            }
+        }
+        for (item, price) in itemPriceDict {
+            NSLog("Item: \(item) \n Price: \(price)")
+        }
     }
 }
 
@@ -154,4 +190,3 @@ extension FirstViewController: UIImagePickerControllerDelegate {
         })
     }
 }
-

@@ -17,24 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="APZ-sJ-LTo">
-                                <rect key="frame" x="21" y="100" width="165" height="420"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="420" id="bIu-Jj-AaR"/>
-                                    <constraint firstAttribute="width" constant="165" id="bsX-8F-z6T"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-4h-xYi">
-                                <rect key="frame" x="233" y="485" width="135" height="30"/>
+                                <rect key="frame" x="220" y="476" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="j20-aL-yJ9"/>
+                                    <constraint firstAttribute="width" constant="160" id="pff-S2-bIU"/>
+                                </constraints>
                                 <state key="normal" title="Choose/Take Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="pickPhoto:" destination="9pv-A4-QxB" eventType="touchUpInside" id="TKp-v2-iYA"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Receipt Reader" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-KA-4E2">
-                                <rect key="frame" x="414" y="100" width="165" height="420"/>
+                                <rect key="frame" x="417" y="100" width="165" height="420"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.88215670619999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="420" id="ifb-h3-pzm"/>
@@ -42,15 +47,43 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="APZ-sJ-LTo">
+                                <rect key="frame" x="18" y="100" width="165" height="420"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="bIu-Jj-AaR"/>
+                                    <constraint firstAttribute="width" constant="165" id="bsX-8F-z6T"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-ba-3sO">
+                                <rect key="frame" x="253" y="523" width="94" height="30"/>
+                                <state key="normal" title="Store Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="storeReceipt:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fJP-bV-5b9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="RBa-4h-xYi" secondAttribute="centerX" id="7rj-of-GK2"/>
-                            <constraint firstItem="APZ-sJ-LTo" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="5" id="8dJ-ch-APm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NU2-KA-4E2" secondAttribute="trailing" constant="5" id="K2p-UP-Ojt"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="RBa-4h-xYi" secondAttribute="bottom" constant="36" id="U9M-8V-8Fv"/>
+                            <constraint firstItem="APZ-sJ-LTo" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="2" id="8dJ-ch-APm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NU2-KA-4E2" secondAttribute="trailing" constant="2" id="K2p-UP-Ojt"/>
+                            <constraint firstItem="bfl-ba-3sO" firstAttribute="top" secondItem="RBa-4h-xYi" secondAttribute="bottom" constant="-3" id="Kkk-AL-1D2"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="RBa-4h-xYi" secondAttribute="bottom" constant="25" id="U9M-8V-8Fv"/>
                             <constraint firstItem="NU2-KA-4E2" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="100" id="elz-tm-2dQ"/>
+                            <constraint firstAttribute="centerX" secondItem="bfl-ba-3sO" secondAttribute="centerX" id="j3Z-kz-6Aw"/>
                             <constraint firstItem="APZ-sJ-LTo" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="100" id="mCy-IO-LpV"/>
                         </constraints>
                     </view>
