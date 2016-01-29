@@ -18,10 +18,11 @@
 // Need to work on UI/UX (Need clear instructions at the top to explain the user has to seperate lines)
 // Store Receipt button must be hidden and then show after taking a picture
 // Have a rescan button
+// Grab date and save receipts under dates
 
 import UIKit
 
-class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FirstViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var receiptTextView: UITextView!
     
@@ -138,7 +139,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             arr.append(line)
         }
         arrayOfItems = arr.filter({$0 != "" && $0 != " "})
-        var receiptText = join("\n", arrayOfItems!)
+        let receiptText = (arrayOfItems!).joinWithSeparator("\n")
         receiptTextView.text = receiptText // UPDATING VIEW SHOULD BE OUTSIDE OF THIS FUNCTION
         
         // Then seperate the string and price and store them into a dictionary of item:prices
@@ -149,7 +150,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     // Ask user to enter a line break after each price
     // After user seperates each line of receipt with a line break, stores the data into the database
     @IBAction func storeReceipt(sender: AnyObject) {
-        var receiptText = receiptTextView.text
+        let receiptText = receiptTextView.text
         var arr:[String] = []
         receiptText.enumerateLines { (line, stop) -> () in //seperate the user editted text into lines again
             arr.append(line)
@@ -157,14 +158,15 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         arrayOfItems = arr.filter({$0 != "" && $0 != " "})
         
         for line in arrayOfItems! { //read each line to extract the item and price
-            var lineArr = split(line) {$0 == " "} //split the line into an array of words
+            var lineArr = line.componentsSeparatedByString(" ") //split the line into an array of words
+            // var lineArr = split(line) {$0 == " "}
             if !lineArr.isEmpty {
                 let price = lineArr.last //price should be the last word in the array
                 // still need to filter out the dollar signs if there are in price
                 let pricedouble = (price! as NSString).doubleValue
-                let lastindex = countElements(lineArr) - 1
+                let lastindex = lineArr.count - 1
                 lineArr.removeAtIndex(lastindex)
-                let item = join(" ", lineArr)
+                let item = lineArr.joinWithSeparator(" ")
                 
                 itemPriceDict[item] = pricedouble //add item and price to dictionary!
             }
@@ -176,9 +178,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
 }
 
 extension FirstViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        let selectedPhoto = info[UIImagePickerControllerEditedImage] as UIImage // change to edited image???
+        let selectedPhoto = info[UIImagePickerControllerEditedImage] as! UIImage // change to edited image???
         let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
         
         addActivityIndicator()

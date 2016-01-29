@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Receipt Reader/FirstViewController.swift"
-            timestampString = "475604010.46697"
+            timestampString = "475623721.669037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "parseText(_:)"
             landmarkType = "5">
          </BreakpointContent>
